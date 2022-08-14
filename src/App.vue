@@ -19,6 +19,8 @@ import TheWelcome from "./components/TheWelcome.vue";
   </header>
 
   <main>
+    <vue-feather type="feather"></vue-feather>
+
     <TheWelcome />
   </main>
 </template>
