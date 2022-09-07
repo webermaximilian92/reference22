@@ -4,7 +4,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "vite",
-    "prod": "vite build",
+    "prod:deploy": "vite build && git subtree push --prefix dist origin gh-pages",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
     "test:unit": "vitest --environment jsdom",
