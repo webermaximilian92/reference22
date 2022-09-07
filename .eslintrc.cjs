@@ -9,7 +9,6 @@ module.exports = {
     "@vue/eslint-config-typescript/recommended",
     "@vue/eslint-config-prettier",
   ],
-
   parserOptions: {
     ecmaVersion: "latest",
   },
@@ -19,4 +18,16 @@ module.exports = {
       extends: ["plugin:cypress/recommended"],
     },
   ],
+  rules: {
+    "no-console": ["off"],
+  },
+  env: {
+    es6: true,
+    node: true,
+    browser: true,
+    amd: true,
+  },
+  globals: {
+    require: true,
+  },
 };

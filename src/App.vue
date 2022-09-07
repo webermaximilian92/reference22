@@ -2,8 +2,10 @@
   <header></header>
 
   <main>
-    <section class="gsap-intro-trigger tw-w-full tw-h-screen tw-bg-stone-600">
-      <div class="gsap-intro-text-wrapper twc-center">
+    <section
+      class="gsap-intro-trigger tw-w-full tw-h-screen tw-bg-stone-600 tw-min-h-[400px] tw-relative"
+    >
+      <div class="gsap-intro-text-wrapper twc-center tw--mt-8">
         <h2
           id="intro-text"
           class="intro-text"
@@ -13,47 +15,133 @@
         ></h2>
       </div>
       <div id="sdm" class="sdm">
-        <div class="sdm_mouse">
-          <div
-            class="sdm_wheel tw-h-2 tw-w-1 tw-block tw-my-2 tw-relative tw-bg-current tw-border-2 tw-border-current"
-          ></div>
+        <div class="sdm__mouse">
+          <div class="sdm__wheel"></div>
         </div>
         <div>
-          <span class="m_scroll_arrows unu"></span>
-          <span class="m_scroll_arrows doi"></span>
-          <span class="m_scroll_arrows trei"></span>
+          <span class="sdm__arrows sdm__arrows--1"></span>
+          <span class="sdm__arrows sdm__arrows--2"></span>
+          <span class="sdm__arrows sdm__arrows--3"></span>
         </div>
       </div>
     </section>
-    <section class="tw-relative tw-w-full tw-h-screen tw-bg-stone-600">
-      <p>Dieses Projekt basiert auf:</p>
-      <ul>
-        <li>
-          einer hochperformanten single-page Vue3-App (TS, Pinia, SFC, Vite für
-          HMR)
-        </li>
-        <li>
-          bestehend aus kleinen, "unwissenden" Single-File-Components (VUE SFC)
-        </li>
-        <li>inklusive vereinfachtem page-routing</li>
-        <li>
-          organisiert, gebaut und überprüft von Node18, NPM8, ESLINT, Prettier
-        </li>
-        <li>optisch verfeinert und schnell wartbar mit tailwindcss</li>
-        <li>performante, selbst konzipierte Elementbewegungen mit GSAP</li>
-        <li>alle Codeänderungen sofort im Browser sichtbar</li>
-        <li>
-          ausführbar geschlossen und unabhängig über Docker oder konventionell
-          über eine README Anleitung.
-        </li>
-        <li>Quellcode aufrufbar über GitHub.</li>
-      </ul>
+    <section
+      class="tw-relative tw-w-full tw-min-h-screen tw-bg-emerald-500 tw-py-40"
+    >
+      <div class="list tw-w-3/5 tw-mx-auto">
+        <h2 class="list__headline">Technologie und Eigenschaften der Seite:</h2>
+        <ul class="list__wrapper">
+          <li>
+            <vue-feather type="check-circle" class=""></vue-feather>
+            <p>
+              single-page vue3-App (TS, Vite, <s>Pinia</s>)<button
+                @click="() => null"
+                class="tw-inline"
+              >
+                <vue-feather type="info"></vue-feather>
+              </button>
+            </p>
+          </li>
+          <li>
+            <vue-feather type="check-circle" class=""></vue-feather>
+            <p>
+              basiert auf kleinen Komponenten aus je einer Datei:
+              Single-File-Components (vue SFC)
+              <button @click="() => null" class="tw-inline">
+                <vue-feather type="info"></vue-feather>
+              </button>
+            </p>
+          </li>
+          <li>
+            <vue-feather type="check-circle" class=""></vue-feather>
+            <p>
+              Verlinkungen über ein vereinfachtes page-routing<button
+                @click="() => null"
+                class="tw-inline"
+              >
+                <vue-feather type="info"></vue-feather>
+              </button>
+            </p>
+          </li>
+          <li>
+            <vue-feather type="check-circle" class=""></vue-feather>
+            <p>
+              organisiert, gebaut, überprüft und getestet von Node18, NPM8,
+              ESLINT, Prettier, <s>Vitest, cypress</s>
+              <button @click="() => null" class="tw-inline">
+                <vue-feather type="info"></vue-feather>
+              </button>
+            </p>
+          </li>
+          <li>
+            <vue-feather type="check-circle" class=""></vue-feather>
+            <p>
+              HMR für Codeänderungen, die sofort im Browser sichtbar
+              werden<button @click="() => null" class="tw-inline">
+                <vue-feather type="info"></vue-feather>
+              </button>
+            </p>
+          </li>
+          <li>
+            <vue-feather type="check-circle" class=""></vue-feather>
+            <p>
+              funktioniert auf allen modernen Geräten, dank mobile-first
+              responsive Umsetzung
+              <button @click="() => null" class="tw-inline">
+                <vue-feather type="info"></vue-feather>
+              </button>
+            </p>
+          </li>
+          <li>
+            <vue-feather type="check-circle" class=""></vue-feather>
+            <p>
+              optisch verfeinert mit feather icons sowie schnell wartbar mit
+              tailwindcss oder alternativ SCSS BEM
+              <button @click="() => null" class="tw-inline">
+                <vue-feather type="info"></vue-feather>
+              </button>
+            </p>
+          </li>
+          <li>
+            <vue-feather type="check-circle" class=""></vue-feather>
+            <p>
+              performante, reaktive Elementbewegungen mit GSAP<button
+                @click="() => null"
+                class="tw-inline"
+              >
+                <vue-feather type="info"></vue-feather>
+              </button>
+            </p>
+          </li>
+          <li>
+            <vue-feather type="check-circle" class=""></vue-feather>
+            <p>
+              selbst konzeptionierte Layouts, Animationen, Inhalte und
+              Funktionalitäten.
+              <button @click="() => null" class="tw-inline">
+                <vue-feather type="info"></vue-feather>
+              </button>
+            </p>
+          </li>
+          <li>
+            <vue-feather type="check-circle" class=""></vue-feather>
+            <p>
+              Quellcode aufrufbar über
+              <a href="https://github.com/webermaximilian92/reference22"
+                >GitHub</a
+              ><button @click="() => null" class="tw-inline">
+                <vue-feather type="info"></vue-feather>
+              </button>
+            </p>
+          </li>
+        </ul>
 
-      <button
-        class="twc-center tw-w-24 tw-h-24 tw-rounded-3xl tw-bg-stone-700 tw-text-teal-400 tw-shadow-md tw-transition-all tw-duration-700 tw-ease-in-out hover:tw-shadow-lg hover:tw-scale-105 hover:tw-text-teal-200"
-      >
-        <vue-feather type="feather" class=""></vue-feather>
-      </button>
+        <button
+          class="twc-center tw-w-24 tw-h-24 tw-rounded-3xl tw-bg-stone-700 tw-text-teal-400 tw-shadow-md tw-transition-all tw-duration-700 tw-ease-in-out hover:tw-shadow-lg hover:tw-scale-105 hover:tw-text-teal-200"
+        >
+          <vue-feather type="feather" class=""></vue-feather>
+        </button>
+      </div>
     </section>
   </main>
 </template>
@@ -68,8 +156,8 @@ export default {
     return {
       headlines: [
         "Eine Kurzreferenz,",
-        "basierend auf einem",
-        "2022 Tech-Stack,",
+        "basierend auf neuster",
+        "2022 Webtechnologie,",
         "von Maximilian Weber.",
       ],
     };
@@ -115,6 +203,15 @@ export default {
         each: 0.005,
         ease: "Power1.easeIn",
       },
+    });
+
+    gsap.to(".sdm", {
+      scrollTrigger: {
+        trigger: ".gsap-intro-trigger",
+        start: "top top",
+        scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+      },
+      y: -100,
     });
   },
 };
