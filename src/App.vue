@@ -1,9 +1,16 @@
 <template>
-  <header></header>
+  <header class="tw-z-[1] tw-absolute">
+    <a href="./"
+      ><img
+        class="watermark tw-w-10 lg:tw-w-[200px]"
+        src="favicon.png"
+        alt="Wasserzeichen Startseite"
+    /></a>
+  </header>
 
   <main>
     <section
-      class="gsap-intro-trigger tw-w-full tw-h-screen tw-bg-stone-600 tw-min-h-[400px] tw-relative"
+      class="gsap-intro-trigger tw-w-full tw-h-screen tw-bg-slate-600 tw-min-h-[400px] tw-relative"
     >
       <div class="gsap-intro-text-wrapper twc-center tw--mt-8">
         <h2

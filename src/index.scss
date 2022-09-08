@@ -23,7 +23,7 @@
 }
 
 .intro-text {
-  @apply tw-block tw-leading-tight tw-whitespace-nowrap tw-overflow-hidden tw-text-2xl tw-text-stone-400 md:tw-text-5xl md:tw-leading-tight;
+  @apply tw-block tw-leading-tight tw-whitespace-nowrap tw-overflow-hidden tw-text-2xl tw-opacity-80 tw-text-lime-100 md:tw-text-5xl md:tw-leading-tight;
 }
 
 .list__headline {
@@ -49,7 +49,7 @@
   }
 
   &__wheel {
-    @apply tw-h-2 tw-w-1 tw-block tw-my-2 tw-mx-auto tw-relative tw-border-2 tw-rounded-sm tw-border-cyan-400;
+    @apply tw-h-2 tw-w-1 tw-block tw-my-2 tw-mx-auto tw-relative tw-border-2 tw-rounded-sm tw-border-purple-400;
     animation: mouse-wheel-move 2s linear infinite;
   }
 
