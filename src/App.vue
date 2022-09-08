@@ -9,10 +9,11 @@
   </header>
 
   <main>
+    <component :is="currentView" />
     <section
-      class="gsap-intro-trigger tw-w-full tw-h-screen tw-bg-slate-600 tw-min-h-[400px] tw-relative"
+      class="gsap-intro-trigger tw-w-full tw-h-screen tw-bg-stone-600 tw-min-h-[400px] tw-relative"
     >
-      <div class="gsap-intro-text-wrapper twc-center tw--mt-8">
+      <div class="gsap-intro-text-wrapper twc-center tw--mt-12">
         <h2
           id="intro-text"
           class="intro-text"
@@ -151,9 +152,18 @@
       </div>
     </section>
   </main>
+  <footer><a href="imprint">Impressum und Datenschutz</a></footer>
 </template>
 
 <script lang="ts">
+import Imprint from "./components/Imprint.vue";
+import Start from "./components/Start.vue";
+
+const routes = {
+  "/": Start,
+  "/imprint": Imprint,
+};
+
 // or all tools are exported from the "all" file (excluding members-only plugins):
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -167,7 +177,13 @@ export default {
         "2022 Webtechnologie,",
         "von Maximilian Weber.",
       ],
+      currentPath: window.location.hash || "/",
     };
+  },
+  computed: {
+    currentView(): string {
+      return routes[this.currentPath.slice(1) || "/"];
+    },
   },
   created() {
     this.headlines = this.headlines.map((headline: string) =>
@@ -182,6 +198,10 @@ export default {
     );
   },
   mounted() {
+    window.addEventListener("hashchange", () => {
+      this.currentPath = window.location.hash;
+    });
+
     // don't forget to register plugins
     gsap.registerPlugin(ScrollTrigger);
 
