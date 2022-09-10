@@ -1,9 +1,8 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 import App from "./App.vue";
-import "./index.scss";
-import "./assets/main.css";
 import VueFeather from "vue-feather";
+import "./index.scss";
 
 const app = createApp(App);
 
