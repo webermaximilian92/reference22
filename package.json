@@ -4,7 +4,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "vite",
-    "prod:deploy": "vite build && git subtree push --prefix dist origin gh-pages",
+    "prod:deploy": "npm run build-only && gh-pages --dist 'dist' --branch 'gh-pages'",
     "build": "run-p type-check build-only",
     "preview": "vite preview --port 4173",
     "test:unit": "vitest --environment jsdom",
@@ -35,6 +35,7 @@
     "eslint": "^8.21.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-vue": "^9.3.0",
+    "gh-pages": "^4.0.0",
     "jsdom": "^20.0.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.16",
