@@ -1,28 +1,9 @@
-<template>
-  <div id="sdm" class="sdm twc-center-x tw-block tw-my-auto tw-bottom-20">
-    <div
-      class="sdm__mouse tw-h-10 tw-w-6 tw-rounded-xl tw-border-2 tw-border-white tw-top-44"
-    >
-      <div
-        class="sdm__wheel tw-h-2 tw-w-1 tw-block tw-my-2 tw-mx-auto tw-relative tw-border-2 tw-rounded-sm tw-border-purple-400"
-      ></div>
-    </div>
-    <div>
-      <span class="sdm__arrows sdm__arrows--1"></span>
-      <span class="sdm__arrows sdm__arrows--2"></span>
-      <span class="sdm__arrows sdm__arrows--3"></span>
-    </div>
-  </div>
-</template>
-
 <script lang="ts">
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { defineComponent } from "vue";
 
-export default defineComponent({
+export default {
   mounted() {
-    // don't forget to register plugins
     gsap.registerPlugin(ScrollTrigger);
 
     gsap.to(".sdm", {
@@ -34,8 +15,30 @@ export default defineComponent({
       y: -100,
     });
   },
-});
+};
 </script>
+
+<template>
+  <div
+    id="sdm"
+    class="sdm twc-center-x tw-block tw-my-auto tw-bottom-32 lg:tw-bottom-20"
+  >
+    <div
+      class="sdm__mouse tw-h-10 tw-w-6 tw-rounded-xl tw-border-2 tw-border-white tw-top-44"
+    >
+      <div
+        class="sdm__wheel tw-h-2 tw-w-1 tw-block tw-my-2 tw-mx-auto tw-relative tw-border-2 tw-rounded-sm tw-border-purple-400"
+      ></div>
+    </div>
+    <div>
+      <span
+        v-for="index in 3"
+        :key="index"
+        class="sdm__arrows sdm__arrows--{{index}} tw-block tw-border-r-2 tw-border-b-2 tw--mb-2 tw-ml-2 tw-w-2 tw-h-2 tw-border-lemon-300"
+      ></span>
+    </div>
+  </div>
+</template>
 
 <style scoped lang="scss">
 .sdm {
@@ -48,16 +51,7 @@ export default defineComponent({
   }
 
   &__arrows {
-    display: block;
     transform: rotate(45deg);
-
-    border-right: 2px solid white;
-    border-bottom: 2px solid white;
-    margin: 0 0 -2px 8px;
-
-    width: 8px;
-    height: 8px;
-
     animation: mouse-arrow 1s infinite;
     animation-direction: alternate;
 

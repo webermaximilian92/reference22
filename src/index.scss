@@ -8,6 +8,15 @@
 @tailwind utilities;
 
 @layer base {
+  a,
+  .twc-link {
+    @apply tw-text-cyan-600 tw-underline hover:tw-text-orange-600 tw-transition-colors;
+
+    &.tw-invert {
+      @apply tw-text-gray-900 hover:tw-text-cyan-600; // results in white and orange (inverted by tw)
+    }
+  }
+
   .twc-center {
     @apply tw-absolute tw-top-1/2 tw-left-1/2 tw-transform tw--translate-x-1/2 tw--translate-y-1/2;
   }
@@ -15,8 +24,4 @@
   .twc-center-x {
     @apply tw-absolute tw-left-1/2 tw-transform tw--translate-x-1/2;
   }
-}
-
-.intro-text {
-  @apply tw-block tw-leading-tight tw-whitespace-nowrap tw-overflow-hidden tw-text-[7vw] tw-opacity-80 tw-text-lime-100 sm:tw-text-5xl sm:tw-leading-tight;
 }

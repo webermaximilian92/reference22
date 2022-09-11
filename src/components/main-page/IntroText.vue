@@ -1,29 +1,13 @@
-<template>
-  <div class="gsap-intro-text-wrapper twc-center tw--mt-12">
-    <h2
-      id="intro-text"
-      class="intro-text"
-      v-for="headline in headlines"
-      :key="headline"
-      v-html="headline"
-    ></h2>
-  </div>
-</template>
-
 <script lang="ts">
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { defineComponent } from "vue";
+import { introText } from "../../data/texts";
 
 export default defineComponent({
   data() {
     return {
-      headlines: [
-        "Eine Kurzreferenz,",
-        "basierend auf neuster",
-        "2022 Webtechnologie,",
-        "von Maximilian Weber.",
-      ],
+      headlines: introText,
     };
   },
   created() {
@@ -69,3 +53,15 @@ export default defineComponent({
   },
 });
 </script>
+
+<template>
+  <div class="gsap-intro-text-wrapper twc-center tw--mt-12">
+    <h2
+      id="intro-text"
+      class="tw-block tw-leading-tight tw-whitespace-nowrap tw-overflow-hidden tw-text-[8vw] tw-opacity-80 tw-text-lime-100 sm:tw-text-5xl sm:tw-leading-tight"
+      v-for="headline in headlines"
+      :key="headline.id"
+      v-html="headline"
+    ></h2>
+  </div>
+</template>
