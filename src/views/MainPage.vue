@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 import ScrollDownMouse from "../components/main-page/ScrollDownMouse.vue";
 import PageFeatures from "../components/main-page/PageFeatures.vue";
 import IntroText from "../components/main-page/IntroText.vue";

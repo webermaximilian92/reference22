@@ -60,7 +60,7 @@ export default defineComponent({
       id="intro-text"
       class="tw-block tw-leading-tight tw-whitespace-nowrap tw-overflow-hidden tw-text-[8vw] tw-opacity-80 tw-text-lime-100 sm:tw-text-5xl sm:tw-leading-tight"
       v-for="headline in headlines"
-      :key="headline.id"
+      :key="headline"
       v-html="headline"
     ></h2>
   </div>

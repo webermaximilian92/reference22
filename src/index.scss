@@ -12,8 +12,9 @@
   .twc-link {
     @apply tw-text-cyan-600 tw-underline hover:tw-text-orange-600 tw-transition-colors;
 
-    &.tw-invert {
-      @apply tw-text-gray-900 hover:tw-text-cyan-600; // results in white and orange (inverted by tw)
+    ._color-invert &,
+    &._color-invert {
+      @apply tw-text-blue-100 hover:tw-text-orange-300;
     }
   }
 

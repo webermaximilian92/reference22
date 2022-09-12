@@ -24,17 +24,21 @@ export default {
     class="sdm twc-center-x tw-block tw-my-auto tw-bottom-32 lg:tw-bottom-20"
   >
     <div
-      class="sdm__mouse tw-h-10 tw-w-6 tw-rounded-xl tw-border-2 tw-border-white tw-top-44"
+      class="sdm__mouse tw-h-10 tw-w-6 tw-rounded-xl tw-border-2 tw-border-cyan-100 tw-top-44"
     >
       <div
-        class="sdm__wheel tw-h-2 tw-w-1 tw-block tw-my-2 tw-mx-auto tw-relative tw-border-2 tw-rounded-sm tw-border-purple-400"
+        class="sdm__wheel tw-h-2 tw-w-1 tw-block tw-my-2 tw-mx-auto tw-relative tw-border-2 tw-rounded-sm tw-border-purple-200"
       ></div>
     </div>
     <div>
       <span
         v-for="index in 3"
         :key="index"
-        class="sdm__arrows sdm__arrows--{{index}} tw-block tw-border-r-2 tw-border-b-2 tw--mb-2 tw-ml-2 tw-w-2 tw-h-2 tw-border-lemon-300"
+        :class="
+          'sdm__arrows sdm__arrows--' +
+          index +
+          ' tw-block tw-border-r-2 tw-border-b-2 tw--mb-0.5 tw-ml-2 tw-w-2 tw-h-2 tw-border-cyan-100'
+        "
       ></span>
     </div>
   </div>
