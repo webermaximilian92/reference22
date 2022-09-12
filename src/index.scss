@@ -8,6 +8,11 @@
 @tailwind utilities;
 
 @layer base {
+  html,
+  body {
+    @apply tw-bg-slate-900;
+  }
+
   a,
   .twc-link {
     @apply tw-text-cyan-700 tw-underline hover:tw-text-orange-700 tw-transition-colors;
