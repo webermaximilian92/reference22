@@ -10,7 +10,7 @@
 @layer base {
   a,
   .twc-link {
-    @apply tw-text-cyan-600 tw-underline hover:tw-text-orange-600 tw-transition-colors;
+    @apply tw-text-cyan-700 tw-underline hover:tw-text-orange-700 tw-transition-colors;
 
     ._color-invert &,
     &._color-invert {

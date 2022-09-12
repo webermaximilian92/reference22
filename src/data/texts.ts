@@ -5,7 +5,7 @@ export interface IFeature {
 }
 
 export const introText: string[] = [
-  "Eine Kurzreferenz,",
+  "Kurzreferenz v0.7,",
   "basierend auf moderner",
   "2022 Webtechnologie,",
   "von Maximilian Weber.",
