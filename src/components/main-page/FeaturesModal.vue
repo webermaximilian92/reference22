@@ -1,5 +1,6 @@
 <template>
   <div
+    _FeaturesModal
     @click.self="toggleModel"
     class="twc-center tw-fixed tw-z-20 tw-w-[100vw] tw-h-[100vh] tw-bg-[rgba(0,0,0,0.3)]"
   >
@@ -20,10 +21,10 @@
 </template>
 
 <script lang="ts">
-import useToggleModal from "../../api/dialog";
+import useToggleModal from "../../api/reference";
 
 export default {
-  name: "FeatureDialog",
+  name: "FeaturesModal",
   setup() {
     const { toggleModel } = useToggleModal();
 

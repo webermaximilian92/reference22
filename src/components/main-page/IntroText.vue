@@ -55,9 +55,8 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="gsap-intro-text-wrapper twc-center tw--mt-12">
+  <div _IntroText class="gsap-intro-text-wrapper twc-center tw--mt-12">
     <h2
-      id="intro-text"
       class="tw-block tw-leading-tight tw-whitespace-nowrap tw-overflow-hidden tw-text-[8vw] tw-opacity-80 tw-text-lime-100 sm:tw-text-5xl sm:tw-leading-tight"
       v-for="headline in headlines"
       :key="headline"

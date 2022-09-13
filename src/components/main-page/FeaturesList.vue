@@ -1,8 +1,8 @@
 <script lang="ts">
 import { siteFeatures } from "../../data/texts";
 
-import useToggleModal from "../../api/dialog";
-import FeatureDialog from "./FeatureDialog.vue";
+import useToggleModal from "../../api/reference";
+import FeaturesModal from "./FeaturesModal.vue";
 
 export default {
   data() {
@@ -21,11 +21,11 @@ export default {
       onToggleModal,
     };
   },
-  components: { FeatureDialog },
+  components: { FeaturesModal },
 };
 </script>
 <template>
-  <div class="tw-max-w-[800px] tw-px-6 tw-mx-auto">
+  <div _FeaturesList class="tw-max-w-[800px] tw-px-6 tw-mx-auto">
     <h2 class="tw-text-emerald-800 tw-text-lg tw-mb-8 md:tw-text-2xl">
       Technologie und Eigenschaften der Seite:
     </h2>
@@ -36,12 +36,12 @@ export default {
         :key="feature.key"
         class="tw-flex tw-flex-nowrap tw-mb-4"
       >
-        <div class="tw-h-0">
+        <span class="tw-h-0">
           <vue-feather
             type="check-circle"
             class="tw-w-5 tw-mt-[3px]"
           ></vue-feather>
-        </div>
+        </span>
         <p class="tw-ml-3">
           <span v-html="feature.text"></span>
           <button
@@ -56,9 +56,9 @@ export default {
             ></vue-feather>
           </button>
         </p>
-        <FeatureDialog v-if="hasRole(feature.id)">
+        <FeaturesModal v-if="hasRole(feature.id)">
           <div v-html="feature.text + ': <br><br>' + feature.detail"></div>
-        </FeatureDialog>
+        </FeaturesModal>
       </li>
     </ul>
     <p class="tw-text-xs tw-text-gray-500 tw-mt-8">
@@ -66,11 +66,5 @@ export default {
       <vue-feather type="info" class="tw-w-3"></vue-feather> abgerufen werden.
       <br />Durchgestrichene <s>Eigenschaften</s> werden demnächst umgesetzt.
     </p>
-    <!-- 
-    <button
-      class="twc-center tw-w-24 tw-h-24 tw-rounded-3xl tw-bg-stone-700 tw-text-teal-400 tw-shadow-md tw-transition-all tw-duration-700 tw-ease-in-out hover:tw-shadow-lg hover:tw-scale-105 hover:tw-text-teal-200"
-    >
-      <vue-feather type="feather" class=""></vue-feather>
-    </button> -->
   </div>
 </template>

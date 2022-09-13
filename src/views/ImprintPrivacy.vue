@@ -1,5 +1,6 @@
 <template>
   <section
+    _ImprintPrivacy
     class="gsap-intro-trigger tw-w-full tw-min-h-screen tw-bg-stone-400 tw-min-h-[550px] tw-relative tw-mb-5 tw-top-5 tw-border-spacing-5 tw-border-slate-900"
   >
     <div class="tw-mx-auto tw-max-w-800 tw-px-6 tw-pt-32 tw-pb-14 lg:tw-pt-56">

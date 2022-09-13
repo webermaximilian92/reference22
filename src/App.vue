@@ -12,6 +12,7 @@ export default {
 
 <template>
   <div
+    _App
     class="n-snappy-bg tw--z-10 tw-fixed tw-h-full tw-w-full tw-bg-slate-900"
   ></div>
 
@@ -23,7 +24,7 @@ export default {
     <router-view></router-view>
   </main>
 
-  <footer class="tw-bg-slate-900">
+  <footer>
     <FooterBar />
   </footer>
 </template>

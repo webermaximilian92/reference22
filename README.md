@@ -37,6 +37,15 @@ or
 npm run dev
 ```
 
+### Prod release
+
+```sh
+npm run prod:deploy
+```
+
+zip available at
+https://github.com/webermaximilian92/reference22/tree/gh-pages
+
 ### Type-Check, Compile and Minify for Production
 
 ```sh
