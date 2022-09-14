@@ -1,7 +1,7 @@
 <template>
   <div
     _FeaturesModal
-    @click.self="toggleModel"
+    @click.self="closeModal"
     class="twc-center tw-fixed tw-z-20 tw-w-[100vw] tw-h-[100vh] tw-bg-[rgba(0,0,0,0.3)]"
   >
     <div
@@ -9,12 +9,13 @@
     >
       <div>
         <button
-          @click="toggleModel"
-          class="twc-link tw-h-8 tw-sticky tw-bg-emerald-700 tw-left-full tw-top-0"
+          @click="closeModal"
+          class="twc-link tw-h-8 tw-sticky tw-bg-emerald-600 tw-left-full tw-top-0"
         >
           <vue-feather type="x" class="tw-w-8"></vue-feather>
         </button>
-        <slot></slot>
+        <p v-html="feature.text"></p>
+        <p v-html="feature.detail"></p>
       </div>
     </div>
   </div>
@@ -22,18 +23,19 @@
 
 <script lang="ts">
 import useToggleModal from "../../api/reference";
+import type { IFeature } from "../../data/texts";
 
 export default {
   name: "FeaturesModal",
+  props: {
+    feature: {} as IFeature,
+  },
   setup() {
-    const { toggleModel } = useToggleModal();
+    const { closeModal, isModalActive } = useToggleModal();
 
-    function clickDiv() {
-      console.log("click");
-    }
     return {
-      clickDiv,
-      toggleModel,
+      closeModal,
+      isModalActive,
     };
   },
 };

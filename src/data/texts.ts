@@ -2,6 +2,7 @@ export interface IFeature {
   id: string;
   text: string;
   detail?: string;
+  key?: string;
 }
 
 export const introText: string[] = [

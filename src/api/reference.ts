@@ -5,7 +5,7 @@ const modal = reactive({
 });
 
 export default function useToggleModal() {
-  const toggleModel = (role = "") => {
+  const closeModal = (role = "") => {
     modal.role.pop();
   };
 
@@ -13,20 +13,22 @@ export default function useToggleModal() {
     modal.role.push({ type: role, isOpen: true });
   };
 
-  const hasRole = (role = "") => {
-    if (role === "") return false;
+  const isModalActive = (role = "") => {
+    if (role === "") {
+      return false;
+    }
+
     const findRole = modal.role.find((currentRole) =>
       currentRole.type === "" ? null : currentRole.type === role
     );
-    if (findRole === undefined) return false;
 
-    return findRole.type === role && findRole.isOpen === true ? true : false;
+    return findRole?.type === role && findRole.isOpen;
   };
 
   return {
     state: readonly(modal),
-    toggleModel,
+    closeModal,
     openModal,
-    hasRole,
+    isModalActive,
   };
 }

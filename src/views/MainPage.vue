@@ -11,7 +11,7 @@ export default {
 <template>
   <section
     _MainPage
-    class="gsap-intro-trigger tw-w-full tw-h-screen tw-bg-stone-600 tw-min-h-[550px] tw-relative tw-top-5 tw-border-spacing-5 tw-border-slate-900"
+    class="gsap-intro-trigger tw-w-full tw-h-screen tw-bg-slate-600 tw-min-h-[550px] tw-relative tw-top-5 tw-border-spacing-5 tw-border-slate-900"
   >
     <IntroText />
     <ScrollDownMouse />

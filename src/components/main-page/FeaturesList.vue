@@ -1,5 +1,5 @@
 <script lang="ts">
-import { siteFeatures } from "../../data/texts";
+import { siteFeatures, type IFeature } from "../../data/texts";
 
 import useToggleModal from "../../api/reference";
 import FeaturesModal from "./FeaturesModal.vue";
@@ -11,12 +11,12 @@ export default {
     };
   },
   setup() {
-    const { openModal, hasRole } = useToggleModal();
+    const { openModal, isModalActive } = useToggleModal();
     function onToggleModal(role: string) {
       openModal(role);
     }
     return {
-      hasRole,
+      isModalActive,
       openModal,
       onToggleModal,
     };
@@ -24,6 +24,7 @@ export default {
   components: { FeaturesModal },
 };
 </script>
+
 <template>
   <div _FeaturesList class="tw-max-w-[800px] tw-px-6 tw-mx-auto">
     <h2 class="tw-text-emerald-800 tw-text-lg tw-mb-8 md:tw-text-2xl">
@@ -32,8 +33,8 @@ export default {
 
     <ul class="tw-text-gray-600">
       <li
-        v-for="feature in features"
-        :key="feature.key"
+        v-for="feature in (features as IFeature[])"
+        :key="feature"
         class="tw-flex tw-flex-nowrap tw-mb-4"
       >
         <span class="tw-h-0">
@@ -56,9 +57,10 @@ export default {
             ></vue-feather>
           </button>
         </p>
-        <FeaturesModal v-if="hasRole(feature.id)">
-          <div v-html="feature.text + ': <br><br>' + feature.detail"></div>
-        </FeaturesModal>
+        <FeaturesModal
+          v-if="isModalActive(feature.id)"
+          :feature="feature"
+        ></FeaturesModal>
       </li>
     </ul>
     <p class="tw-text-xs tw-text-gray-500 tw-mt-8">
