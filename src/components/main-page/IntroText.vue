@@ -23,13 +23,12 @@ export default defineComponent({
     );
   },
   mounted() {
-    // don't forget to register plugins
     gsap.registerPlugin(ScrollTrigger);
     gsap.from(".gsap-intro-text-in", {
       y: 200,
       opacity: 0,
       duration: 0.6,
-      delay: 0.5,
+      delay: 0,
       ease: "Power4.easeOut",
       stagger: {
         each: 0.02,
@@ -42,11 +41,11 @@ export default defineComponent({
         start: "top top",
         scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
       },
-      y: -1000,
+      y: -3000,
       opacity: 0,
       ease: "Power1.easeIn",
       stagger: {
-        each: 0.005,
+        each: 0.003,
         ease: "Power1.easeIn",
       },
     });

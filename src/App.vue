@@ -1,11 +1,32 @@
-<script>
+<script lang="ts">
 import WaterMark from "@/components/WaterMark.vue";
 import FooterBar from "@/components/FooterBar.vue";
+import { useRouter } from "vue-router";
+import { gsap } from "gsap";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 export default {
   components: {
     WaterMark,
     FooterBar,
+  },
+  data() {
+    return {
+      isImprintView: false,
+    };
+  },
+  setup() {
+    gsap.registerPlugin(ScrollToPlugin);
+    const router = useRouter();
+
+    router.afterEach(() => {
+      gsap.to(window, { duration: 0.5, scrollTo: 0 });
+    });
+  },
+  computed: {
+    currentRouteName: () => {
+      return useRouter().currentRoute.value.path;
+    },
   },
 };
 </script>
@@ -20,11 +41,11 @@ export default {
     <WaterMark />
   </header>
 
-  <main>
+  <main class="gsap-intro-trigger tw-pt-5">
     <router-view></router-view>
   </main>
 
-  <footer>
+  <footer v-if="currentRouteName !== '/impressum'">
     <FooterBar />
   </footer>
 </template>

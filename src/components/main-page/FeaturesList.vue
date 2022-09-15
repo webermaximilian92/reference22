@@ -11,15 +11,15 @@ export default {
     };
   },
   setup() {
-    const { openModal, isModalActive } = useToggleModal();
-    function onToggleModal(role: string) {
-      openModal(role);
-    }
+    const { isModalActive } = useToggleModal();
     return {
       isModalActive,
-      openModal,
-      onToggleModal,
     };
+  },
+  methods: {
+    onToggleModal: (role: string) => {
+      useToggleModal().openModal(role);
+    },
   },
   components: { FeaturesModal },
 };
@@ -34,7 +34,7 @@ export default {
     <ul class="tw-text-gray-600">
       <li
         v-for="feature in (features as IFeature[])"
-        :key="feature"
+        :key="feature.key"
         class="tw-flex tw-flex-nowrap tw-mb-4"
       >
         <span class="tw-h-0">
