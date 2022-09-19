@@ -1,10 +1,11 @@
 <script lang="ts">
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
 export default {
   mounted() {
-    gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     gsap.to(".gsap-sdm", {
       scrollTrigger: {
         trigger: ".gsap-intro-trigger",
@@ -14,31 +15,42 @@ export default {
       y: -100,
     });
   },
+  methods: {
+    scrollToFeatures: () => {
+      gsap.to(window, {
+        duration: 1,
+        scrollTo: ".gsap-features",
+        ease: "Power4.easeInOut",
+      });
+    },
+  },
 };
 </script>
 
 <template>
-  <div
-    _IntroScrollMouse
-    class="gsap-sdm sdm twc-center-x tw-block tw-my-auto tw-bottom-32 lg:tw-bottom-20"
-  >
+  <button @click="scrollToFeatures()">
     <div
-      class="sdm__mouse tw-h-10 tw-w-6 tw-rounded-xl tw-border-2 tw-border-cyan-100 tw-top-44"
+      _IntroScrollMouse
+      class="gsap-sdm sdm twc-center-x tw-block tw-my-auto tw-bottom-32 lg:tw-bottom-20"
     >
+      <div
+        class="sdm__mouse tw-h-10 tw-w-6 tw-rounded-xl tw-border-2 tw-border-cyan-100 tw-top-44"
+      >
+        <span
+          class="sdm__wheel tw-h-2 tw-w-1 tw-block tw-my-2 tw-mx-auto tw-relative tw-border-2 tw-rounded-sm tw-border-purple-200"
+        ></span>
+      </div>
       <span
-        class="sdm__wheel tw-h-2 tw-w-1 tw-block tw-my-2 tw-mx-auto tw-relative tw-border-2 tw-rounded-sm tw-border-purple-200"
+        v-for="index in 3"
+        :key="index"
+        :class="
+          'sdm__arrows sdm__arrows--' +
+          index +
+          ' tw-block tw-border-r-2 tw-border-b-2 tw--mb-0.5 tw-ml-2 tw-w-2 tw-h-2 tw-border-cyan-100'
+        "
       ></span>
     </div>
-    <span
-      v-for="index in 3"
-      :key="index"
-      :class="
-        'sdm__arrows sdm__arrows--' +
-        index +
-        ' tw-block tw-border-r-2 tw-border-b-2 tw--mb-0.5 tw-ml-2 tw-w-2 tw-h-2 tw-border-cyan-100'
-      "
-    ></span>
-  </div>
+  </button>
 </template>
 
 <style scoped lang="scss">

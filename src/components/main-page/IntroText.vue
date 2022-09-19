@@ -27,12 +27,13 @@ export default defineComponent({
     gsap.from(".gsap-intro-text-in", {
       y: 200,
       opacity: 0,
-      duration: 0.6,
+      duration: 1.5,
       delay: 0,
       ease: "Power4.easeOut",
       stagger: {
-        each: 0.02,
-        ease: "Power1.easeIn",
+        each: 0.005,
+        from: "end",
+        ease: "Power4.easeIn",
       },
     });
     gsap.to(".gsap-intro-text-out", {
@@ -41,11 +42,12 @@ export default defineComponent({
         start: "top top",
         scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
       },
-      y: -3000,
+      y: 1000,
       opacity: 0,
       ease: "Power1.easeIn",
       stagger: {
-        each: 0.003,
+        each: 0.001,
+        from: "end",
         ease: "Power1.easeIn",
       },
     });

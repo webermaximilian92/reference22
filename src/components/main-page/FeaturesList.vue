@@ -1,5 +1,5 @@
 <script lang="ts">
-import { siteFeatures, type IFeature } from "../../data/texts";
+import { siteFeatures } from "../../data/texts";
 
 import useToggleModal from "../../api/reference";
 import FeaturesModal from "./FeaturesModal.vue";
@@ -8,17 +8,22 @@ export default {
   data() {
     return {
       features: siteFeatures,
-    };
-  },
-  setup() {
-    const { isModalActive } = useToggleModal();
-    return {
-      isModalActive,
+      activeModalId: {},
     };
   },
   methods: {
-    onToggleModal: (role: string) => {
+    openFeatureModal(role: string): void {
       useToggleModal().openModal(role);
+      this.setActiveModalId();
+    },
+
+    closeModal(): void {
+      useToggleModal().closeModal();
+      this.setActiveModalId();
+    },
+
+    setActiveModalId(): void {
+      this.activeModalId = useToggleModal().activeModalId;
     },
   },
   components: { FeaturesModal },
@@ -26,7 +31,7 @@ export default {
 </script>
 
 <template>
-  <div _FeaturesList class="tw-max-w-[800px] tw-px-6 tw-mx-auto">
+  <div _FeaturesList class="tw-max-w-custom-letter-spacing tw-px-6 tw-mx-auto">
     <h2 class="tw-text-emerald-800 tw-text-lg tw-mb-8 md:tw-text-2xl">
       Technologie und Eigenschaften der Seite:
     </h2>
@@ -47,7 +52,7 @@ export default {
           <span v-html="feature.text"></span>
           <button
             v-if="feature.detail"
-            @click="onToggleModal(feature.id)"
+            @click="openFeatureModal(feature.id)"
             title="Mehr Informationen zum Thema"
             class="tw-inline tw-absolute"
           >
@@ -58,8 +63,9 @@ export default {
           </button>
         </p>
         <FeaturesModal
-          v-if="isModalActive(feature.id)"
-          :feature="feature"
+          v-if="activeModalId === feature.id"
+          @close="closeModal()"
+          :websiteFeature="feature"
         ></FeaturesModal>
       </li>
     </ul>

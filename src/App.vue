@@ -20,7 +20,7 @@ export default {
     const router = useRouter();
 
     router.afterEach(() => {
-      gsap.to(window, { duration: 0.5, scrollTo: 0 });
+      gsap.to(window, { duration: 0.7, scrollTo: 0, ease: "Power2.easeInOut" });
     });
   },
   computed: {

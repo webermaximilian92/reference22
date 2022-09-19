@@ -4,7 +4,7 @@
     class="tw-w-full tw-bg-stone-400 tw-min-h-[calc(100vh-1.25rem)] tw-relative tw-border-slate-900"
   >
     <div
-      class="tw-mx-auto tw-max-w-[800px] tw-px-6 tw-pt-[25vh] tw-pb-14 lg:tw-pt-56"
+      class="tw-mx-auto tw-max-w-custom-letter-spacing tw-px-6 tw-pt-[25vh] tw-pb-14 lg:tw-pt-56"
     >
       <p>
         Verantwortlicher für die Seite ist Maximilian Weber, erreichbar unter

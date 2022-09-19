@@ -9,6 +9,15 @@ module.exports = {
       fontFamily: {
         sans: ["'WorkSans'", ...defaultTheme.fontFamily.sans],
       },
+      backgroundImage: {
+        "custom-mountains": "url('mountains.jpeg')",
+      },
+      minHeight: {
+        "custom-banner": "550px",
+      },
+      maxWidth: {
+        "custom-letter-spacing": "800px",
+      },
     },
   },
   prefix: "tw-",
