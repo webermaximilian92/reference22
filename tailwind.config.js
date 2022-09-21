@@ -10,7 +10,7 @@ module.exports = {
         sans: ["'WorkSans'", ...defaultTheme.fontFamily.sans],
       },
       backgroundImage: {
-        "custom-mountains": "url('mountains.jpeg')",
+        "custom-mountains": "url('/mountains.jpeg')",
       },
       minHeight: {
         "custom-banner": "550px",

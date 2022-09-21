@@ -13,6 +13,10 @@
     @apply tw-bg-slate-900;
   }
 
+  h2 {
+    @apply tw-text-2xl tw-leading-tight tw-mb-8;
+  }
+
   a,
   .twc-link {
     @apply tw-text-cyan-700 tw-underline hover:tw-text-orange-700 tw-transition-colors;
