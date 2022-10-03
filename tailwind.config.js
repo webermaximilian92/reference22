@@ -18,6 +18,9 @@ module.exports = {
       maxWidth: {
         "custom-letter-spacing": "800px",
       },
+      screens: {
+        "lg-height": { raw: "(min-height: 700px)" },
+      },
     },
   },
   prefix: "tw-",

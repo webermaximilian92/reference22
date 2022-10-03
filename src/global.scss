@@ -11,6 +11,10 @@
   html,
   body {
     @apply tw-bg-slate-900;
+
+    &._is-modal-active {
+      @apply tw-overflow-hidden;
+    }
   }
 
   h2 {

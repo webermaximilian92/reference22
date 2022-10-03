@@ -1,7 +1,6 @@
 <script lang="ts">
-import { siteFeatures } from "../../data/texts";
+import { siteFeatures, type IFeature } from "../../data/texts";
 
-import useToggleModal from "../../api/reference";
 import FeaturesModal from "./FeaturesModal.vue";
 
 import { gsap } from "gsap";
@@ -14,22 +13,80 @@ export default {
   data() {
     return {
       features: siteFeatures,
-      activeModalId: {},
+      featuresLength: siteFeatures.length,
+      currentModal: {},
     };
   },
   methods: {
-    openFeatureModal(role: string): void {
-      useToggleModal().openModal(role);
-      this.setActiveModalId();
+    openModal(currentId: string, index: number): void {
+      this.currentModal = {
+        id: currentId,
+        index: index,
+        isOpen: true,
+        isRotating: false,
+        isFirstFeatureWithModal: this.isFirstIndexWithModal(index),
+        isLastFeatureWithModal: this.isLastIndexWithModal(index),
+      };
+
+      // disable document scrolling
+      document.body.classList.add("_is-modal-active");
     },
 
-    closeModal(): void {
-      useToggleModal().closeModal();
-      this.setActiveModalId();
+    rotateModalByIndex(index: number = 0, height: number = 0): void {
+      this.currentModal = {
+        id: this.features[index].id,
+        index: index,
+        isOpen: true,
+        isRotating: true,
+        isFirstFeatureWithModal: this.isFirstIndexWithModal(index),
+        isLastFeatureWithModal: this.isLastIndexWithModal(index),
+        lastHeight: height,
+      };
     },
 
-    setActiveModalId(): void {
-      this.activeModalId = useToggleModal().activeModalId;
+    setPrevModal(height: number): void {
+      this.rotateModalByIndex(this.getIndexOfPrevFeatureWithModal(), height);
+    },
+
+    setNextModal(height: number): void {
+      this.rotateModalByIndex(this.getIndexOfNextFeatureWithModal(), height);
+    },
+
+    getCurrentModalIndex(): number {
+      return this.features.findIndex((f) => f.id === this.currentModal.id);
+    },
+
+    getIndexOfPrevFeatureWithModal(): number {
+      for (let i = this.currentModal.index - 1; i >= 0; i--) {
+        if (this.features[i].detail) {
+          return i;
+        }
+      }
+    },
+
+    getIndexOfNextFeatureWithModal(): number {
+      for (let i = this.currentModal.index + 1; i < this.featuresLength; i++) {
+        if (this.features[i].detail) {
+          return i;
+        }
+      }
+    },
+
+    isFirstIndexWithModal(i: number): boolean {
+      return i === this.features.findIndex((f) => !!f.detail);
+    },
+
+    isLastIndexWithModal(i: number): boolean {
+      return (
+        i ===
+        this.features.length -
+          [...this.features].reverse().findIndex((f) => !!f.detail) -
+          1
+      );
+    },
+
+    modalClosed(): void {
+      this.currentModal = {};
     },
   },
   mounted() {
@@ -56,7 +113,7 @@ export default {
         trigger: ".gsap-features",
         start: "90% bottom",
         end: "bottom bottom",
-        scrub: 5, // smooth scrubbing, takes 5 second to "catch up" to the scrollbar
+        scrub: 10, // smooth scrubbing, takes 5 second to "catch up" to the scrollbar
       },
       opacity: 0,
       duration: 1,
@@ -75,7 +132,10 @@ export default {
     </h2>
 
     <ul class="tw-text-gray-600">
-      <li v-for="feature in (features as IFeature[])" :key="feature.key">
+      <li
+        v-for="(feature, index) in (features as IFeature[])"
+        :key="feature.key"
+      >
         <div class="gsap-feature-item tw-flex tw-flex-nowrap tw-mb-4">
           <span class="tw-h-0">
             <vue-feather
@@ -87,7 +147,7 @@ export default {
             <span v-html="feature.text"></span>
             <button
               v-if="feature.detail"
-              @click="openFeatureModal(feature.id)"
+              @click="openModal(feature.id, index)"
               title="Mehr Informationen zum Thema"
               class="tw-inline tw-absolute"
             >
@@ -100,9 +160,15 @@ export default {
         </div>
 
         <FeaturesModal
-          v-if="activeModalId === feature.id"
-          @close="closeModal()"
+          v-if="currentModal?.id === feature.id"
+          @closed="modalClosed()"
+          @setPrev="setPrevModal"
+          @setNext="setNextModal"
           :websiteFeature="feature"
+          :isFirstFeature="currentModal.isFirstFeatureWithModal"
+          :isLastFeature="currentModal.isLastFeatureWithModal"
+          :isRotating="currentModal.isRotating"
+          :lastHeight="currentModal.lastHeight"
         ></FeaturesModal>
       </li>
     </ul>

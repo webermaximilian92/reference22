@@ -13,12 +13,12 @@
         >.
       </p>
       <p>
-        Die Seite beinhaltet keine Cookies, Datenbanken oder zusätzliche Abrufe
-        von Dateien von Drittanbietern. Geistiges erschaffen von Inhalten und
-        Ideen unterliegen dem Urheberrecht. Die Software fällt unter die
-        MIT-Lizenz. Die Seite wird nicht kommerziell verwendet. Aus technischen
-        Gründen werden auf allen Webseiten-Servern im WWW IP-Adressen
-        verarbeitet.
+        Die Seite beinhaltet keine Cookies, keine Cloud oder zusätzliche Abrufe
+        von Dateien von Drittanbietern. Aus technischen Gründen werden auf allen
+        Webseiten-Servern im WWW IP-Adressen verarbeitet. Die Software fällt
+        unter die MIT-Lizenz. Die Seite wird nicht kommerziell verwendet.
+        Geistiges erschaffen von Inhalten und Ideen unterliegen dem
+        Urheberrecht.
       </p>
       <p>
         <router-link to="/">Zurück zur Startseite</router-link>

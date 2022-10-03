@@ -1,5 +1,12 @@
+export interface IFeature {
+  id: string;
+  text?: string;
+  detail?: string;
+  key?: string;
+}
+
 export const introText: string[] = [
-  "Kurzreferenz v0.9,",
+  "Kurzreferenz,",
   "basierend auf moderner",
   "2022 Webtechnologie,",
   "von Maximilian Weber.",
@@ -9,8 +16,6 @@ export const siteFeatures: IFeature[] = [
   {
     id: "vue3",
     text: "single-page vue3-App <i>(Vite, <s>Pinia</s>, TS)</i>",
-    detail:
-      "<p>Die Inhalte und Seiten einer single-page App werden dynamisch bereitgestellt, d.h. es wird nur ein Einstiegspunkt geladen und alles Andere wird reaktiv generiert, auch bei einem Pfadwechsel/interne Verlinkung (z.B. Impressum).</p><a target='_blank' href='https://vuejs.org/'>VueJS3</a> <a target='_blank' href=https://vitejs.dev/'>ViteJS</a> <a target='_blank' href='https://pinia.vuejs.org/'>PiniaJS</a> <a target='_blank' href='https://www.typescriptlang.org/'>Typescript</a>",
   },
   {
     id: "router4",
@@ -22,13 +27,13 @@ export const siteFeatures: IFeature[] = [
     id: "sfc",
     text: "kleine <i>SFC</i> Komponenten <i>(vue Single-File-Component)</i>",
     detail:
-      "<p>vue Single-File-Component:</p> <p class='tw-mb-5'><code>&lt;script&gt; &lt;template&gt; &lt;style&gt;</code> sind in einer Datei gebündelt. Das bietet Vorteile, solange man die Komponenten, wie vorgesehen, klein hält.</p> <img class='tw-w-96' src='./sfc.png' />",
+      "<p>vue Single-File-Component:</p> <p><code>&lt;script&gt; &lt;template&gt; &lt;style&gt;</code> sind in einer Datei gebündelt. Das bietet Vorteile, solange man die Komponenten, wie vorgesehen, klein hält.</p> <img class='tw-w-96' src='./sfc.png' style='aspect-ratio: 646/853' />",
   },
   {
     id: "hmr",
     text: "<i>HMR</i> für Codeanpassungen, die sofort im Browser sichtbar werden",
     detail:
-      "<p class='tw-mb-5'>Hot Module Replacement:<br> Zeiteinsparung, da Änderungen (im Beispiel Text und Textfarbe), die am Code vorgenommen wurden, sofort im Browser sichtbar werden. (Video in halber Geschwindigkeit).</p> <img src='./hmr.gif' />",
+      "<p>Hot Module Replacement:<br> Zeiteinsparung, da Änderungen (im Beispiel Text und Textfarbe), die am Code vorgenommen wurden, sofort im Browser sichtbar werden. (Video in halber Geschwindigkeit).</p> <img src='./hmr.gif' style='aspect-ratio: 880/172' />",
   },
   {
     id: "node",
@@ -40,7 +45,7 @@ export const siteFeatures: IFeature[] = [
     id: "css",
     text: "optisch verfeinert mit <i>Feather Icons</i> sowie schnell wartbar mit <i>tailwindcss</i> oder alternativ <i>SCSS BEM</i>",
     detail:
-      "<p>Feather Icons bietet ein umfangreiches, aufeinander abgestimmtes Icon Set.</p> <p>Tailwind vereint eine Fülle an Vorteilen. Leider leidet die Lesbarkeit des Templates an Tailwinds generischen Klassennamen. Um dem entgegenzuwirken, wurden einigen Elementen Attributnamen zugewiesen, die keine weitere Funktion haben als die Struktur lesbarer zu gestalten. z.B. '_IntroText'</p><p>BEM entspricht dem absoluten Gegenteil von Tailwind. BEM-Klassennamen beschreiben ein Element bis ins Detail ohne dabei zu beschreiben, wie es gestyled wurde. Da BEM und Tailwind Vor- und Nachteile bieten, kann man sie kombinieren. Je nach Geschmack sollte allerdings eine Primärmethode gewählt werden. In diesem Fall ist es Tailwind</p><a target='_blank' href='https://feathericons.com/'>Feather Icons</a> <a target='_blank' href='https://tailwindcss.com/'>tailwindcss</a> <a target='_blank' href='http://getbem.com/'>SCSS BEM</a>",
+      "<p>Feather Icons bietet ein umfangreiches, aufeinander abgestimmtes Icon Set.</p> <p>Tailwind vereint eine Fülle an Vorteilen. Leider leidet die Lesbarkeit des Templates an Tailwinds generischen Klassennamen. Um dem entgegenzuwirken, wurden einigen Elementen Attributnamen zugewiesen, die keine weitere Funktion haben als die Struktur lesbarer zu gestalten. z.B. '_IntroText'</p><p>BEM entspricht dem absoluten Gegenteil von Tailwind. BEM-Klassennamen beschreiben ein Element bis ins Detail ohne dabei zu beschreiben, wie es gestyled wurde. Da BEM und Tailwind Vor- und Nachteile bieten, kann man sie kombinieren. Je nach Geschmack sollte allerdings eine Primärmethode gewählt werden. Auf dieser Seite ist es primär Tailwind</p><a target='_blank' href='https://feathericons.com/'>Feather Icons</a> <a target='_blank' href='https://tailwindcss.com/'>tailwindcss</a> <a target='_blank' href='http://getbem.com/'>SCSS BEM</a>",
   },
   {
     id: "responsive",
@@ -55,6 +60,10 @@ export const siteFeatures: IFeature[] = [
   {
     id: "concept",
     text: "selbst konzeptionierte Layouts, Animationen, Inhalte und Funktionalitäten.",
+  },
+  {
+    id: "size",
+    text: "Gesamtegröße der kompilierten Webseite mit allen Bildern, GIFs, Icons, Schriften, Animationen und Scripten: unter 1MB. (mit mobilem 3G in 2 Sekunden betriebsbereit)",
   },
   {
     id: "github",
