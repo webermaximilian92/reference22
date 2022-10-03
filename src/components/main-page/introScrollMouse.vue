@@ -31,7 +31,7 @@ export default {
   <button @click="scrollToFeatures()">
     <div
       _IntroScrollMouse
-      class="gsap-sdm sdm twc-center-x tw-block tw-my-auto tw-bottom-32 lg:tw-bottom-20"
+      class="gsap-sdm sdm twc-center-x tw-block tw-my-auto tw-bottom-20"
     >
       <div
         class="sdm__mouse tw-h-10 tw-w-6 tw-rounded-xl tw-border-2 tw-border-cyan-100 tw-top-44"

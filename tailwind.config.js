@@ -13,10 +13,10 @@ module.exports = {
         "custom-mountains": "url('/mountains.jpeg')",
       },
       minHeight: {
-        "custom-banner": "550px",
+        "custom-banner": "500px",
       },
       maxWidth: {
-        "custom-letter-spacing": "800px",
+        "custom-letter-spacing": "700px",
       },
       screens: {
         "lg-height": { raw: "(min-height: 700px)" },

@@ -28,7 +28,6 @@ export default defineComponent({
       y: 200,
       opacity: 0,
       duration: 1.5,
-      delay: 0,
       ease: "Power4.easeOut",
       stagger: {
         each: 0.005,
@@ -56,9 +55,12 @@ export default defineComponent({
 </script>
 
 <template>
-  <h2 _IntroText class="gsap-intro-text-wrapper twc-center tw--mt-12">
+  <h2
+    _IntroText
+    class="gsap-intro-text-wrapper twc-center tw-w-full tw-max-w-custom-letter-spacing tw-pl-6 tw--mt-12"
+  >
     <span
-      class="tw-block tw-leading-tight tw-whitespace-nowrap tw-overflow-hidden tw-text-[8vw] tw-opacity-80 tw-text-slate-50 sm:tw-text-5xl sm:tw-leading-tight"
+      class="tw-block tw-leading-tight tw-whitespace-nowrap tw-overflow-hidden tw-text-[7vw] tw-opacity-80 tw-text-slate-50 sm:tw-text-5xl sm:tw-leading-tight"
       v-for="headline in headlines"
       :key="headline"
       v-html="headline"

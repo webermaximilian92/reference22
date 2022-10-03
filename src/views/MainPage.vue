@@ -11,7 +11,7 @@ export default {
       scrollTrigger: {
         trigger: ".gsap-intro-trigger",
         start: "top top",
-        scrub: 0, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+        scrub: 0, // scrubbing disabled
       },
       y: 200,
     });
@@ -19,7 +19,7 @@ export default {
       scrollTrigger: {
         trigger: ".gsap-intro-trigger",
         start: "top top",
-        scrub: 0, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+        scrub: 0, // scrubbing disabled
       },
       opacity: 0.9,
     });
@@ -29,14 +29,14 @@ export default {
 
 <template>
   <div
-    class="gsap-mountains tw-bg-custom-mountains tw-bg-cover tw-bg-no-repeat tw-bg-bottom tw-w-full tw-h-screen tw-min-h-custom-banner tw-absolute"
+    class="gsap-mountains tw-bg-custom-mountains tw-bg-cover tw-bg-no-repeat tw-bg-bottom tw-w-full tw-h-screen tw-max-h-[100vw] tw-min-h-custom-banner tw-absolute"
   ></div>
   <div
-    class="gsap-filter tw-bg-slate-600 tw-opacity-50 tw-w-full tw-h-screen tw-min-h-custom-banner tw-absolute"
+    class="gsap-filter tw-bg-slate-600 tw-opacity-0 tw-w-full tw-h-screen tw-min-h-custom-banner tw-max-h-[100vw] tw-absolute"
   ></div>
   <section
     _MainPage
-    class="tw-w-full tw-h-screen tw-min-h-custom-banner tw-relative tw-border-spacing-5 tw-border-slate-900"
+    class="tw-w-full tw-h-screen tw-min-h-custom-banner tw-max-h-[100vw] tw-relative tw-border-spacing-5 tw-border-slate-900"
   >
     <IntroText />
     <ScrollDownMouse />

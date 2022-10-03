@@ -100,7 +100,6 @@ export default {
       opacity: 0,
       y: 5,
       duration: 5,
-      delay: 0,
       ease: "Power4.easeOut",
       stagger: {
         each: 1,
@@ -113,11 +112,9 @@ export default {
         trigger: ".gsap-features",
         start: "90% bottom",
         end: "bottom bottom",
-        scrub: 10, // smooth scrubbing, takes 5 second to "catch up" to the scrollbar
       },
       opacity: 0,
       duration: 1,
-      delay: 0,
       ease: "Power2.easeOut",
     });
   },

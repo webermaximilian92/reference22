@@ -7,9 +7,9 @@ export interface IFeature {
 
 export const introText: string[] = [
   "Kurzreferenz,",
-  "basierend auf moderner",
-  "2022 Webtechnologie,",
-  "von Maximilian Weber.",
+  "basierend auf modernen",
+  "2022 Webtechnologien –",
+  "von Maximilian Weber",
 ];
 
 export const siteFeatures: IFeature[] = [

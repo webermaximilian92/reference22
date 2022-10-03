@@ -50,7 +50,6 @@ export default defineComponent({
         opacity: 0,
         y: -100,
         duration: 0.3,
-        delay: 0,
         ease: "Power4.easeIn",
       });
     },
@@ -60,7 +59,6 @@ export default defineComponent({
         opacity: 0,
         y: -30,
         duration: 0.2,
-        delay: 0,
         ease: "Power4.easeIn",
         onComplete: () => {
           this.$emit("setPrev", this.$refs.modal.clientHeight);
@@ -73,7 +71,6 @@ export default defineComponent({
         opacity: 0,
         y: -30,
         duration: 0.2,
-        delay: 0,
         ease: "Power4.easeIn",
         onComplete: () => {
           this.$emit("setNext", this.$refs.modal.clientHeight);
@@ -95,7 +92,6 @@ export default defineComponent({
         opacity: 0,
         y: 30,
         duration: 0.5,
-        delay: 0,
         ease: "Power4.easeOut",
         onComplete: () => {
           this.isOpening = false;
@@ -108,7 +104,6 @@ export default defineComponent({
     gsap.from(".gsap-modal-backdrop", {
       opacity: 0,
       duration: 0.6,
-      delay: 0,
       ease: "Power2.easeOut",
       onComplete: () => {
         this.isOpening = false;
@@ -130,10 +125,10 @@ export default defineComponent({
   <div
     _FeaturesModal
     @click.self="closeModals"
-    class="gsap-modal-backdrop twc-center tw-fixed tw-z-50 tw-w-screen tw-h-screen tw-bg-[rgba(0,0,0,0.6)]"
+    class="gsap-modal-backdrop twc-center tw-overscroll-contain tw-fixed tw-z-50 tw-w-screen tw-h-screen tw-bg-[rgba(0,0,0,0.6)]"
   >
     <div
-      class="twc-center tw-flex tw-w-[90vw] tw-max-h-[70vh] tw-max-w-custom-letter-spacing"
+      class="twc-center tw-flex tw-w-[90vw] tw-max-h-[60vh] tw-max-w-custom-letter-spacing"
     >
       <div
         ref="modal"
@@ -155,14 +150,14 @@ export default defineComponent({
     <button
       v-if="!isFirstFeature"
       @click="prevModal"
-      class="twc-center-x tw-absolute tw-text-white tw-h-8 tw-top-6 lg-height:tw-top-[8vh]"
+      class="twc-center-x tw-absolute tw-text-white tw-h-8 tw-top-12 lg-height:tw-top-[8vh]"
     >
       <vue-feather type="arrow-up-circle" class="tw-w-8"></vue-feather>
     </button>
     <button
       v-if="!isLastFeature"
       @click="nextModal"
-      class="twc-center-x tw-absolute tw-text-white tw-h-8 tw-bottom-6 lg-height:tw-bottom-[8vh]"
+      class="twc-center-x tw-absolute tw-text-white tw-h-8 tw-bottom-12 lg-height:tw-bottom-[8vh]"
     >
       <vue-feather type="arrow-down-circle" class="tw-w-8"></vue-feather>
     </button>
